@@ -19,7 +19,7 @@ public class RegisterRequestValidator : AbstractValidator<RegisterRequest>
         RuleFor(temp => temp.Password).NotEmpty().WithMessage("Password is required")
         .MinimumLength(8).WithMessage("Password should be of minimum length 8");
         //PersonName
-        RuleFor(temp => temp.PersonName).Length(1, 50).WithMessage("Length of person name should be between 1 and 50");
+        RuleFor(temp => temp.PersonName).Length(1, 50).WithMessage("Person name should be 1 to 50 characters long");
         //Gender
         RuleFor(temp => temp.Gender).IsInEnum().WithMessage("Gender should be a valid male, female or others");
     }
