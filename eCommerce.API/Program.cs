@@ -21,11 +21,29 @@ builder.Services.AddAutoMapper(typeof(ApplicationUserMappingProfile).Assembly);
 //Add Fluent Validations
 builder.Services.AddFluentValidationAutoValidation();
 
+//Add swagger
+builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddSwaggerGen();
+
+builder.Services.AddCors(options => 
+{
+    options.AddDefaultPolicy(builder => builder.WithOrigins("http://localhost:4200")
+    .AllowAnyMethod()
+    .AllowAnyHeader());
+});
+
 var app = builder.Build();
 
 app.UseExceptionHandlingMiddleware();
 
 app.UseRouting();
+
+app.UseSwagger();//Adds endpoint that can serve swagger json
+
+app.UseSwaggerUI();//Adds endpoint that can serve swagger ui
+
+app.UseCors();
 
 app.UseAuthentication();
 

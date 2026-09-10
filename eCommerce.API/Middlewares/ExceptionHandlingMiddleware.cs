@@ -43,3 +43,4 @@ public class ExceptionHandlingMiddleware
         return builder.UseMiddleware<ExceptionHandlingMiddleware>();
     }
 }
+ 
