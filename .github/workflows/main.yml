@@ -28,3 +28,6 @@ jobs:
 
     - name: Test
       run: dotnet test --no-build --configuration Release
+
+    - name: Build Docker image
+      run: docker build -t users-microservice:latest -f ./eCommerce.API/Dockerfile .
