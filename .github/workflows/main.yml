@@ -38,3 +38,8 @@ jobs:
         registry: vishalmicroacr.azurecr.io
         username: ${{ secrets.ACR_USERNAME }}
         password: ${{ secrets.ACR_PASSWORD }}
+
+    - name: Push Docker image to ACR
+      run: |
+        docker tag users-microservice:latest vishalmicroacr.azurecr.io/users-microservice:latest
+        docker push vishalmicroacr.azurecr.io/users-microservice:latest
